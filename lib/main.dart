@@ -1,6 +1,8 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_news_apps/pages/tabs_page.dart';
 import 'package:flutter_news_apps/services/new_services.dart';
+import 'package:flutter_news_apps/services/new_services2.dart';
 import 'package:flutter_news_apps/theme/tema.dart';
 import 'package:provider/provider.dart';
 
@@ -17,6 +19,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => NewsServices()),
+        ChangeNotifierProvider(create: (_) => NewsServices2()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

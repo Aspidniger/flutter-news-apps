@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_news_apps/pages/tab1_page.dart';
+import 'package:flutter_news_apps/pages/tab2_page.dart';
 import 'package:provider/provider.dart';
 
 class TabsPage extends StatelessWidget {
@@ -33,12 +34,12 @@ class _Navegacion extends StatelessWidget {
       onTap: (index) => navegacionModel.paginaActual = index,
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Top'
+          icon: Icon(Icons.public),
+          label: 'General'
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.public),
-          label: 'Business'
+          icon: Icon(Icons.health_and_safety),
+          label: 'Health'
         ),
       ]
     );
@@ -56,17 +57,18 @@ class _Paginas extends StatelessWidget {
 
     return PageView(
       controller: navegacionModel.pageController,
-      physics: NeverScrollableScrollPhysics(),
+      //physics: NeverScrollableScrollPhysics(),
       children: [
         Tab1Page(),
-        Container(
-          color: Colors.green,
-        )
+        Tab2Page(),
+      
       ],
     );
   }
 }
 
+// This class is used to manage the current page and the PageController for the PageView.
+// It uses ChangeNotifier to notify listeners when the current page changes.
 class _NavegacionModel with ChangeNotifier {
 
   int _paginaActual = 0;
@@ -77,6 +79,8 @@ class _NavegacionModel with ChangeNotifier {
 
   PageController get pageController => this._pageController;
 
+// This method sets the current page and animates the PageView to that page.
+// It also notifies listeners about the change.
   set paginaActual(int valor) {
     this._paginaActual = valor;
     this._pageController.animateToPage(

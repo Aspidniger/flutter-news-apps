@@ -8,16 +8,16 @@ final _APIKEY = 'b50fe9a8eb5d4a43a63f2a4186e314c3';
 
 
 
-class NewsServices with ChangeNotifier{
+class NewsServices2 with ChangeNotifier{
 
   List<Article> headlines = [];
 
-  NewsServices() {
+  NewsServices2() {
     getTopHeadlines();
   }
   
   Future<void> getTopHeadlines() async {
-    final url = Uri.parse('$_URL_NEWS/top-headlines?country=us&apiKey=$_APIKEY');
+    final url = Uri.parse('$_URL_NEWS/top-headlines?country=us&category=health&apiKey=$_APIKEY');
     try {
       final resp = await http.get(url);
 
